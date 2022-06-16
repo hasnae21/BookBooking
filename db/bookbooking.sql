@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 15 juin 2022 à 18:03
+-- Généré le : jeu. 16 juin 2022 à 15:36
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.2
 
@@ -59,7 +59,8 @@ CREATE TABLE `commentaire` (
   `Id_Commentaire` int(11) NOT NULL,
   `Date_Commentaire` int(11) NOT NULL,
   `Detail_Commentaire` int(11) NOT NULL,
-  `Notation` int(11) NOT NULL
+  `Notation` int(11) NOT NULL,
+  `Nbr_Emprunt` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
 -- --------------------------------------------------------
@@ -73,7 +74,8 @@ CREATE TABLE `copie` (
   `Date_D'achat` int(11) NOT NULL,
   `Etat_Copie` int(11) NOT NULL,
   `Réservé` int(11) NOT NULL,
-  `Présent` int(11) NOT NULL
+  `Présent` int(11) NOT NULL,
+  `ISBN` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
 -- --------------------------------------------------------
@@ -85,7 +87,9 @@ CREATE TABLE `copie` (
 CREATE TABLE `emprunt` (
   `Nbr_Emprunt` int(11) NOT NULL,
   `Date_Prévisionnelle_De_Retour` date NOT NULL,
-  `Date_Effective_De_Retour` date NOT NULL
+  `Date_Effective_De_Retour` date NOT NULL,
+  `Id_Adhérent` int(11) NOT NULL,
+  `Id_Copie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
 -- --------------------------------------------------------
@@ -101,7 +105,8 @@ CREATE TABLE `livre` (
   `Maison_d_edition` int(11) NOT NULL,
   `Nbr_page` int(11) NOT NULL,
   `Sommaire` int(11) NOT NULL,
-  `Edition` int(11) NOT NULL
+  `Edition` int(11) NOT NULL,
+  `Id_Catégorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
 --
@@ -124,59 +129,57 @@ ALTER TABLE `categorie`
 -- Index pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
-  ADD PRIMARY KEY (`Id_Commentaire`);
+  ADD PRIMARY KEY (`Id_Commentaire`),
+  ADD KEY `Nbr_Emprunt` (`Nbr_Emprunt`);
 
 --
 -- Index pour la table `copie`
 --
 ALTER TABLE `copie`
-  ADD PRIMARY KEY (`Id_Copie`);
+  ADD PRIMARY KEY (`Id_Copie`),
+  ADD KEY `ISBN` (`ISBN`);
 
 --
 -- Index pour la table `emprunt`
 --
 ALTER TABLE `emprunt`
-  ADD PRIMARY KEY (`Nbr_Emprunt`);
+  ADD PRIMARY KEY (`Nbr_Emprunt`),
+  ADD KEY `Id_Copie` (`Id_Copie`);
 
 --
 -- Index pour la table `livre`
 --
 ALTER TABLE `livre`
-  ADD PRIMARY KEY (`ISBN`);
+  ADD PRIMARY KEY (`ISBN`),
+  ADD KEY `Id_Catégorie` (`Id_Catégorie`);
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `adherent`
+-- Contraintes pour la table `commentaire`
 --
-ALTER TABLE `adherent`
-  ADD CONSTRAINT `adherent_ibfk_1` FOREIGN KEY (`Id_Adhérant`) REFERENCES `emprunt` (`Nbr_Emprunt`);
-
---
--- Contraintes pour la table `categorie`
---
-ALTER TABLE `categorie`
-  ADD CONSTRAINT `categorie_ibfk_1` FOREIGN KEY (`Id_Catégorie`) REFERENCES `livre` (`ISBN`);
+ALTER TABLE `commentaire`
+  ADD CONSTRAINT `Nbr_Emprunt` FOREIGN KEY (`Nbr_Emprunt`) REFERENCES `emprunt` (`Nbr_Emprunt`);
 
 --
 -- Contraintes pour la table `copie`
 --
 ALTER TABLE `copie`
-  ADD CONSTRAINT `copie_ibfk_1` FOREIGN KEY (`Id_Copie`) REFERENCES `emprunt` (`Nbr_Emprunt`);
+  ADD CONSTRAINT `ISBN` FOREIGN KEY (`ISBN`) REFERENCES `livre` (`ISBN`);
 
 --
 -- Contraintes pour la table `emprunt`
 --
 ALTER TABLE `emprunt`
-  ADD CONSTRAINT `emprunt_ibfk_1` FOREIGN KEY (`Nbr_Emprunt`) REFERENCES `commentaire` (`Id_Commentaire`);
+  ADD CONSTRAINT `Id_Copie` FOREIGN KEY (`Id_Copie`) REFERENCES `copie` (`Id_Copie`);
 
 --
 -- Contraintes pour la table `livre`
 --
 ALTER TABLE `livre`
-  ADD CONSTRAINT `livre_ibfk_1` FOREIGN KEY (`ISBN`) REFERENCES `copie` (`Id_Copie`);
+  ADD CONSTRAINT `Id_Catégorie` FOREIGN KEY (`Id_Catégorie`) REFERENCES `categorie` (`Id_Catégorie`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
