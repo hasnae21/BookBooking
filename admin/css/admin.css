@@ -76,7 +76,6 @@ a:hover{
 
 
 .Btn_add {
-    width: fit-content;
     margin-bottom:20px;
     background-color: #9CD9C8;
     padding: 5px 20px;
@@ -92,7 +91,6 @@ a:hover{
     background-color: #fff;
 }
 .Btn_addd {
-    width: fit-content;
     margin-bottom:20px;
     background-color: #73634F;
     padding: 5px 20px;

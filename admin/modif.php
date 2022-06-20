@@ -69,7 +69,7 @@ if (isset($_POST['button'])) {
         <input type="text" name="Sommaire" value="<?= $row['Sommaire'] ?>">
         <label>Edition</label>
         <input type="number" name="l_Edition" value="<?= $row['l_Edition'] ?>">
-        <label>Libelle Catégorie</label>
+        <label>Catégorie</label>
         <input type="text" name="Id_Catégorie" value="<?= $row['Id_Catégorie'] ?>">
 
         <input type="submit" value="Modifier" name="button">

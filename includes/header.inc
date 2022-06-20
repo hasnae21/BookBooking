@@ -13,6 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="css.css" />
     <link rel="icon" href=""/>
+
   </head>
 <body>

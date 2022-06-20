@@ -20,6 +20,7 @@ include 'navbar.php';
             <th>Sommaire</th>
             <th>Edition</th>
             <th>Catégorie</th>
+            <th></th>
         </tr>
         <?php
         //requête pour afficher la liste des employés
@@ -44,8 +45,8 @@ include 'navbar.php';
                     <td><?= $row['l_Edition'] ?></td>
                     <td><?= $roww['Libelle_Catégorie'] ?></td>
 
-                    <td><a href="modif.php?id=<?=$row['id']?>" class="Btn_addd">  Modifier </a></td>
-                    <td><a href="suprim.php?id=<?=$row['id']?>"  class="Btn_addd">  Supprimer </a></td>
+                    <td><a href="modif.php?id=<?=$row['ISBN']?>" class="Btn_addd">  Modifier </a>
+                    <a href="suprim.php?id=<?=$row['ISBN']?>"  class="Btn_addd">  Supprimer </a></td>
                 </tr>
 
         <?php

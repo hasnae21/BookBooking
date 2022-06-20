@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Alegreya', serif;
+    font-weight: bold;
+}
+.navbar-brand img{
+    width: 160px;
+    height: 140px;
+}
