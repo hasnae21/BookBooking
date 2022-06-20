@@ -1,5 +1,7 @@
 <?php 
 
 //  Routes
-$tpl = '../includes/';  //route include
-$tpm = '../db/';  //route to database
+$tpl = '../includes/';  //route inc
+$tpd= '../db/';  //route to database
+
+$tjs= './js/';    //js

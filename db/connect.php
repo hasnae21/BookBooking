@@ -1,9 +1,10 @@
 <?php
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "bookbooking";
+//echo "message";
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+  //connexion à la base de données
+  $con = mysqli_connect("localhost","root","","bookbooking");
+  if(!$con){
+     echo "Vous n'êtes pas connecté à la base de donnée";
+  }
 
-echo "connect";
+?>

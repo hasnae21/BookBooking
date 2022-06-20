@@ -1,7 +1,7 @@
 <?php 
 $title = 'Home';
 include 'route.php';
-include $tpl . 'header.php';
+include $tpl . 'header.inc';
 ?>
 
 <?php include $tpm . 'connect.php'; ?>
@@ -12,4 +12,4 @@ include $tpl . 'header.php';
 </h1>
 
 
-<?php include $tpl . 'footer.php'; ?>
+<?php include $tpl . 'footer.inc'; ?>

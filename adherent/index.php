@@ -1,5 +1,5 @@
 <?php 
-$title = 'Language Home';
+$title = 'Adherents Home';
 require_once "includes/header.inc";
 ?>
 

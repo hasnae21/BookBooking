@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Alegreya', serif;
+    font-weight: bold;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+}
+img{
+height: 165px;
+width: 195px;
+}
+a{
+    font-size: larger;
+    font-weight: bold;
+    margin-left: 20px;
+}
+a:hover{
+    color: #000;
+}
+.navbar {
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    margin-left: -280px;
+    background-color: #9CD9C8;
+    transition: 0.4s;
+}
+
+.nav-link {
+    font-size: 1.25em;
+    margin-left: 15px;
+    color: #487367;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #ffffff80;
+}
+
+
+.my-container {
+    transition: 0.4s;
+}
+
+
+/* for navbar */
+
+.active-nav {
+    margin-left: 0;
+}
+
+
+/* for main section */
+
+.active-cont {
+    margin-left: 280px;
+}
+
+#menu-btn {
+    background-color: #fff;
+    color: #9CD9C8;
+    padding: 5px 20px;
+}
+
+#menu-btn:focus {
+    box-shadow: 0 0 0 0.25rem #9CD9C8;
+}
+
+
+
+
+.Btn_add {
+    width: fit-content;
+    margin-bottom:20px;
+    background-color: #9CD9C8;
+    padding: 5px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: 0;
+    border-radius: 6px;
+    text-decoration: 0;
+}
+.Btn_add:hover {
+    color: #404040;
+    background-color: #fff;
+}
+.Btn_addd {
+    width: fit-content;
+    margin-bottom:20px;
+    background-color: #73634F;
+    padding: 5px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: 0;
+    border-radius: 6px;
+    text-decoration: 0;
+}
+.Btn_addd:hover {
+    color: #73634F;
+    background-color: #fff;
+    border: solid 2px #73634F ;
+}
+/*tableau*/
+table {
+    border-collapse:collapse;
+    color: #404040;
+}
+th {
+    font-size: 16px;
+    border-bottom: 3px solid #ffcb61;
+    padding: 5px 20px;
+    font-weight: 500;
+}
+td {
+    font-weight: 400;
+    padding: 5px 30px;
+    font-size: 14px;
+    text-align: center;
+
+}
+
+tr:nth-child(2n){
+    background-color: #f6f8f8;
+}
+tr:nth-child(2n) td {
+    border-bottom: 1px solid #e0e0e0;
+    border-top:  1px solid #e0e0e0;
+}
+/*Form CSS*/
+.form {
+    background-color: #f6f8f8;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 6px;
+}
+.form form {
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+}
+.back_btn {
+    color: #9CD9C8;
+    text-decoration: 0;
+    display: flex;
+    align-items: center;
+}
+.back_btn img {
+    height: 16px;
+    margin-right:5px ;
+}
+h2 {
+    margin: 10px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.erreur_message {
+    color: red;
+    font-size: 12px;
+}
+label {
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+input{
+    padding: 5px;
+    border: 1px solid #999;
+    outline: 0;
+    margin-top: 2px;
+}
+input:focus{
+    border: 1px solid #ffcb61;
+}
+input[type="submit"]{
+    margin-top: 25px;
+    background-color: #9CD9C8;
+    border: 1px solid #9CD9C8;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+
