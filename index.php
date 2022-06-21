@@ -3,7 +3,7 @@ $title = 'Home';
 
 include 'route.php';
 include $tpl . 'header.inc';
-include $tpl . 'nav.inc';
+include $tpb . 'index.html';
 ?>
 
 <?php include $tpm . 'connect.php'; ?>
