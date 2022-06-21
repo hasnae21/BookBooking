@@ -4,4 +4,10 @@ body{
     box-sizing: border-box;
     font-family: 'Alegreya', serif;
     font-weight: bold;
+    background-color: #e3f2fd;
+}
+.card{
+    margin: 20px;
+    width: 250px;
+    height: auto;
 }
