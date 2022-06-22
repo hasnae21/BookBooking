@@ -10,7 +10,7 @@ include 'navbar.php';
 $id = $_GET['id'];
 
 //requête pour afficher les infos d'un employé
-$req = mysqli_query($con, "SELECT * FROM livre WHERE id = $id ");
+$req = mysqli_query($con, "SELECT * FROM livre WHERE ISBN = $id ");
 $row = mysqli_fetch_assoc($req);
 
 
