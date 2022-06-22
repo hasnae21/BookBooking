@@ -52,7 +52,7 @@ if (mysqli_num_rows($result) > 0) {
 <!-- tableau de copies -->
 
 <div style="margin: 50px 175px;">
-    <h5 style="text-align: center;">Exemplaires du meme livre dans la bibliothèque :</h5><br>
+    <h5 style="text-align: center;">Exemplaires du livre dans la bibliothèque :</h5><br>
     <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
             <tr>
@@ -134,6 +134,10 @@ if (mysqli_num_rows($result) > 0) {
     </table>
 </div>
 
+<div>
+    <h5 style="text-align: center;">Commentaire sur le livre par d'autres lecteurs:</h5><br>
+
+</div>
 <?php
 // include 'body.html';
 include $tpl . 'footer.inc';
