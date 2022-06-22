@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
 
         $id = $row["Id_Catégorie"];
         $reqq = mysqli_query($con, "SELECT * FROM categorie WHERE Id_Catégorie=$id ");
-        $roww = mysqli_fetch_assoc($reqq);
+        $roww = mysqli_fetch_array($reqq);
 ?>
         <div class="cards" >
             <div class="card text-center border border-dark shadow-0 "  style="background-color: #487367; color:#fff;">
@@ -40,13 +40,12 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </div>
 
-<?php }
-}
+<?php 
+}}
 ?>
 </div>
 <?php
 // include 'body.html';
 include 'footer.html';
 include $tpl . 'footer.inc';
-
 ?>
