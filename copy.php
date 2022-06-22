@@ -6,7 +6,7 @@ include $tpm . 'connect.php';
 include $tpl . 'header.inc';
 
 include 'nav.html';
-include 'header.html';
+//include 'header.html';
 ?>
 
 
@@ -21,31 +21,28 @@ $result = mysqli_query($con, $query);
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_array($result);
     $idc = $row["Id_Catégorie"];
+
     $reqq = mysqli_query($con, "SELECT * FROM categorie WHERE Id_Catégorie=$idc ");
     $roww = mysqli_fetch_assoc($reqq);
 ?>
     <p>
-        Titre:&nbsp; <?php echo $row["Titre"]; ?> <br>
-        Auteur:&nbsp; <?php echo $row["Auteur"]; ?> <br>
-        Categorie:&nbsp; <?php echo $roww["Libelle_Catégorie"]; ?>
+        Titre: &nbsp; <?php echo $row["Titre"]; ?> <br>
+        Auteur: &nbsp; <?php echo $row["Auteur"]; ?> <br>
+        Categorie: &nbsp; <?php echo $roww["Libelle_Catégorie"]; ?>
     </p>
 
     <?php
-    $req = mysqli_query($con, "SELECT * FROM copie WHERE ISBN=$id ");
+    $req = mysqli_query($con, "SELECT * FROM copie WHERE ISBN=$id ORDER BY Id_Copie  ASC");
+    if (mysqli_num_rows($req) > 0) {
     $rew = mysqli_fetch_assoc($req);
-    while ($rew) {
-
     ?>
     <p>
         Etat de Copie : &nbsp; <?php echo $rew["Etat_Copie"]; ?> <br>
-        Titre:&nbsp; <?php echo $rew["Présent"]; ?> <br>
-        Categorie:&nbsp; <?php echo $rew["Réservé"]; ?>
-        
+        Titre: &nbsp; <?php echo $rew["Présent"]; ?> <br>
+        Categorie: &nbsp; <?php echo $rew["Réservé"]; ?>
     </p>
-
 <?php
-    }
-}
+}}
 ?>
 
 <?php
