@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2022 at 02:57 PM
+-- Generation Time: Jun 23, 2022 at 01:30 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -84,7 +84,8 @@ CREATE TABLE `commentaire` (
 --
 
 INSERT INTO `commentaire` (`Id_Commentaire`, `Date_Commentaire`, `Detail_Commentaire`, `Notation`, `Nbr_Emprunt`) VALUES
-(1, '2022-06-20', 'ces est un commentaire', 5, 1);
+(1, '2022-06-20', 'ceci est un commentaire du livre Rich father and poor father', 0, 1),
+(2, '2022-06-23', 'ceci est un commentaire sur le livre unique mirror', 5, 2);
 
 -- --------------------------------------------------------
 
@@ -97,7 +98,8 @@ CREATE TABLE `copie` (
   `Date_D'achat` date NOT NULL,
   `Etat_Copie` varchar(255) NOT NULL,
   `Réservé` tinyint(1) NOT NULL,
-  `Présent` tinyint(1) NOT NULL,
+  `Présente` tinyint(1) NOT NULL,
+  `empurnter` int(11) NOT NULL,
   `ISBN` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
@@ -105,8 +107,12 @@ CREATE TABLE `copie` (
 -- Dumping data for table `copie`
 --
 
-INSERT INTO `copie` (`Id_Copie`, `Date_D'achat`, `Etat_Copie`, `Réservé`, `Présent`, `ISBN`) VALUES
-(1, '2022-06-15', 'bien', 0, 1, 3784);
+INSERT INTO `copie` (`Id_Copie`, `Date_D'achat`, `Etat_Copie`, `Réservé`, `Présente`, `empurnter`, `ISBN`) VALUES
+(1, '2022-06-15', 'bien', 0, 0, 1, 3784),
+(2, '2022-06-15', 'tres bien', 0, 1, 0, 3784),
+(3, '2022-06-21', 'moyenne', 0, 1, 0, 978),
+(4, '2022-06-08', 'mauvaise', 0, 0, 1, 978),
+(5, '2022-06-01', 'mauvaise', 1, 0, 0, 978);
 
 -- --------------------------------------------------------
 
@@ -127,7 +133,8 @@ CREATE TABLE `emprunt` (
 --
 
 INSERT INTO `emprunt` (`Nbr_Emprunt`, `Date_Prévisionnelle_De_Retour`, `Date_Effective_De_Retour`, `Id_Adhérent`, `Id_Copie`) VALUES
-(1, '2022-06-07', '2022-06-29', 1342, 1);
+(1, '2022-06-07', '2022-06-29', 1342, 1),
+(2, '2022-06-07', '2022-06-09', 1342, 4);
 
 -- --------------------------------------------------------
 
@@ -136,8 +143,8 @@ INSERT INTO `emprunt` (`Nbr_Emprunt`, `Date_Prévisionnelle_De_Retour`, `Date_Ef
 --
 
 CREATE TABLE `livre` (
-  `id` int(11) NOT NULL,
   `ISBN` int(11) NOT NULL,
+  `couverture` varchar(255) NOT NULL,
   `Titre` varchar(255) NOT NULL,
   `Auteur` varchar(255) NOT NULL,
   `Maison_d_edition` varchar(255) NOT NULL,
@@ -151,8 +158,10 @@ CREATE TABLE `livre` (
 -- Dumping data for table `livre`
 --
 
-INSERT INTO `livre` (`id`, `ISBN`, `Titre`, `Auteur`, `Maison_d_edition`, `Nbr_page`, `Sommaire`, `l_Edition`, `Id_Catégorie`) VALUES
-(2, 3784, 'Rich father and poor father', 'Robert Kiyosaki', 'Maison JARER', 244, '', 1997, 2);
+INSERT INTO `livre` (`ISBN`, `couverture`, `Titre`, `Auteur`, `Maison_d_edition`, `Nbr_page`, `Sommaire`, `l_Edition`, `Id_Catégorie`) VALUES
+(978, '2-couverture.png.webp', 'unique mirror', 'Reham Radi', 'Maison Galerie', 264, 'Summary.jpeg', 234, 3),
+(3784, '1-couverture.jpg.webp', 'Rich father and poor father', 'Robert Kiyosaki', 'Maison JARER', 244, 'Summary.jpeg', 1997, 1),
+(9785, '3-couverture.png.webp', 'pistachio theory', 'pistachio theory', 'Maison Al Hadahar', 338, 'Summary.jpeg', 2017, 1);
 
 --
 -- Indexes for dumped tables
@@ -196,18 +205,8 @@ ALTER TABLE `emprunt`
 -- Indexes for table `livre`
 --
 ALTER TABLE `livre`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`ISBN`),
   ADD KEY `Id_Catégorie` (`Id_Catégorie`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `livre`
---
-ALTER TABLE `livre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -223,7 +222,7 @@ ALTER TABLE `commentaire`
 -- Constraints for table `copie`
 --
 ALTER TABLE `copie`
-  ADD CONSTRAINT `copie_ibfk_1` FOREIGN KEY (`ISBN`) REFERENCES `livre` (`ISBN`);
+  ADD CONSTRAINT `copie_ibfk_1` FOREIGN KEY (`ISBN`) REFERENCES `livre` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `emprunt`
