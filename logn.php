@@ -11,26 +11,6 @@ include $tpl . 'header.inc';
 //include 'nav.html';
 //include 'header.html';
 
-
-if (isset($_SESSION['Id_Adhérant'])) {
-    header("Location: index.php");
-    echo "<script>alert(' your are loged in.')</script>";
-}
-
-if (isset($_POST['submit'])) {
-    $Identfcateur = $_POST['Identfcateur'];
-
-    $sql = "SELECT * FROM adherent WHERE Id_Adhérant == $Identfcateur";
-    $result = mysqli_query($con, $sql);
-    if ($result->num_rows > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['Id_Adhérant'] = $row['Id_Adhérant'];
-
-        header("Location: index.php");
-    } else {
-        echo "<script>alert('Woops! Id Adhérant is Wrong.')</script>";
-    }
-}
 ?>
 
 <div class="col-12 p-3">
@@ -42,13 +22,34 @@ if (isset($_POST['submit'])) {
                 <input type="text" class="form-control" placeholder="Entrer votre identifiant" 
                 name="Identfcateur" required  value="<?php echo $_POST['Identfcateur']; ?>"  >
             </div>
-            <button name="submit" class="btn btn-dark "> Connection </button>
+            <button name="login" class="btn btn-dark "> Connection </button>
             <br>
         </form>
     </center>
 </div>
 
-
+<?php
+	if (isset($_POST['login']))
+		{
+			$username = mysqli_real_escape_string($con, $_POST['user']);
+			$password = mysqli_real_escape_string($con, $_POST['pass']);
+			
+			$query 		= mysqli_query($con, "SELECT * FROM users WHERE  password='$password' and username='$username'");
+			$row		= mysqli_fetch_array($query);
+			$num_row 	= mysqli_num_rows($query);
+			
+			if ($num_row > 0) 
+				{			
+					$_SESSION['user_id']=$row['user_id'];
+					header('location:home.php');
+					
+				}
+			else
+				{
+					echo 'Invalid Username and Password Combination';
+				}
+		}
+  ?>
 <?php
 // include 'body.html';
 //include 'footer.html';
