@@ -21,7 +21,7 @@ include $tpl . 'header.inc';
             ?>
 
 
-<table class="table align-middle mb-0 bg-white">
+<!-- <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
       <th>Name</th>
@@ -130,4 +130,4 @@ include $tpl . 'header.inc';
       </td>
     </tr>
   </tbody>
-</table>
+</table> -->

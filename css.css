@@ -12,6 +12,27 @@ body{
     height: auto;
     
 }
-h5{
+#z{
+    position: absolute;
+    top: 290px;
+    z-index: 1;
+    color: white;
+font-family: Alegreya;
+    margin: 0px 20%;
+    background-color: #487367dd;
+    padding: 15px 25px;
+    padding-top: 0px;
+    padding-bottom: 28px;
     text-align: center;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
+nav{
+    z-index: 4;
+}
+
+

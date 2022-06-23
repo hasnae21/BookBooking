@@ -30,7 +30,7 @@
             <br>
 
             <li class="nav-item w-100">
-                <a href="#" class="nav-link text-dark pl-4"> Log out </a>
+                <a href="./logout.php" class="nav-link text-dark pl-4"> Log out </a>
             </li>
         </ul>
     </nav>

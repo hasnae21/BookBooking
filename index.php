@@ -9,14 +9,22 @@ include 'nav.html';
 include 'header.html';
 ?>
 
-<!-- <h2 class="mt-5"> Liste des Livre:</h2> -->
-<div style="display: flex;">
+<div style="text-align: center; margin-top: 25px; color:#487367; font-family: Alegreya;">
+    <h4>Liste des livres dans la bibliothèque</h4>
+
+</div>
+<div style="display: flex; flex-direction: row;
+    flex-wrap: wrap;     justify-content: center;
+    align-items: center; margin: 5px;">
+
+
 <?php
 $query =  "SELECT * FROM livre ORDER BY ISBN ASC";
 $result = mysqli_query($con, $query);
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
+       while ($row = mysqli_fetch_array($search_result)) {
 
         $id = $row["Id_Catégorie"];
         $reqq = mysqli_query($con, "SELECT * FROM categorie WHERE Id_Catégorie=$id ");
@@ -41,7 +49,7 @@ if (mysqli_num_rows($result) > 0) {
         </div>
 
 <?php 
-}}
+}}}
 ?>
 </div>
 <?php
