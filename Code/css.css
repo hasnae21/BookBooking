@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Alegreya', serif;
+    font-weight: bold;
+    background-color: #e3f2fd;
+}
+.card{
+    margin: 20px;
+    width: 250px;
+    height: auto;
+    
+}
+#z{
+    position: absolute;
+    top: 350px;
+    z-index: 1;
+    color: white;
+font-family: Alegreya;
+    margin: 0px 20%;
+    background-color: #487367dd;
+    padding: 15px 25px;
+    padding-top: 0px;
+    padding-bottom: 28px;
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+nav{
+    z-index: 4;
+}
+
+
