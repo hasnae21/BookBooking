@@ -3,13 +3,12 @@ $title = 'Home';
 
 session_start();
 error_reporting(0);
-include 'route.php';
+
+include 'route.inc';
 
 include $tpm . 'connect.php';
 include $tpl . 'header.inc';
 
-//include 'nav.html';
-//include 'header.html';
 
 ?>
 
@@ -51,7 +50,6 @@ include $tpl . 'header.inc';
 		}
   ?>
 <?php
-// include 'body.html';
-//include 'footer.html';
+
 include $tpl . 'footer.inc';
 ?>

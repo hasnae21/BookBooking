@@ -1,12 +1,12 @@
 <?php
 $title = 'Home';
 
-include 'route.php';
+include 'route.inc';
 include $tpm . 'connect.php';
 include $tpl . 'header.inc';
 
-include 'nav.html';
-//include 'header.html';
+include $tpl . 'nav.html';
+
 ?>
 <div style="display: flex; flex-direction: column;
     flex-wrap: wrap;     justify-content: center;
@@ -128,6 +128,6 @@ if (mysqli_num_rows($result) > 0) {
 
 <?php
 // include 'body.html';
-include 'footer.html';
+include $tpl . 'footer.html';
 include $tpl . 'footer.inc';
 ?>

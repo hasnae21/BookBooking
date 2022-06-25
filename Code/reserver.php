@@ -1,7 +1,7 @@
 <?php
 $title = 'Admin Dashboard';
 
-include 'route.php';
+include 'route.inc';
 include $tpm . 'connect.php';
 include $tpl . 'header.inc';
 

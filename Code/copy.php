@@ -1,12 +1,11 @@
 <?php
 $title = 'Home';
 
-include 'route.php';
+include 'route.inc';
 include $tpm . 'connect.php';
 include $tpl . 'header.inc';
 
-include 'nav.html';
-//include 'header.html';
+include $tpl . 'nav.html';
 ?>
 
 <?php
@@ -174,6 +173,6 @@ if (mysqli_num_rows($result) > 0) {
 
 <?php
 // include 'body.html';
+include $tpl . 'footer.html';
 include $tpl . 'footer.inc';
-include 'footer.html';
 ?>
